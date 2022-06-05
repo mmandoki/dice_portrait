@@ -1,0 +1,33 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+
+    line-height: 1.5em;
+}
+
+.center-content{
+    max-width: 500px;
+}
+
+.slider{
+    display: block;
+}
+
+#extraSliders {
+    display: none;
+}
+
+#options {
+    display: none;
+}
+
+canvas {
+    outline: black 1px solid;
+    display: none;
+}
+
+input[type="range"]{
+    width:400px
+}
+

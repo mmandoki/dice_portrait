@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="dice.js"></script>
+    </head>
+
+    <body>
+        <div class="center-content">
+        <br>
+        <fieldset>
+            <p><input type="file" id="input" name="input" accept="image/png, image/jpeg" onchange="main();"></p>
+        </fieldset>
+        <br>
+
+        <div id="options">
+        <fieldset>
+            <input type="checkbox" name="showLines" id="showLines" value="showLines" onchange="showLines()">
+            <label for="aspectRatio">Show lines</label>
+            <br>
+            <label>Select dice colour: </label>
+            <select name="colour" id="colour" onchange="updateColour()">
+                <option value="b">Black</option>
+                <option value="w" selected>White</option>
+                <option value="bw">Black and White</option>
+            </select>
+        
+            <input class="slider" type="range" min="0" max="100000" id="thresh1" oninput="updateSliders(1);">
+            <input class="slider" type="range" min="0" max="100000" id="thresh2" oninput="updateSliders(2);">
+            <input class="slider" type="range" min="0" max="100000" id="thresh3" oninput="updateSliders(3);">
+            <input class="slider" type="range" min="0" max="100000" id="thresh4" oninput="updateSliders(4);">
+            <input class="slider" type="range" min="0" max="100000" id="thresh5" oninput="updateSliders(5);">
+            <div id="extraSliders">
+                <input class="slider" type="range" min="0" max="100000" id="thresh6" oninput="updateSliders(6);">
+                <input class="slider" type="range" min="0" max="100000" id="thresh7" oninput="updateSliders(7);">
+                <input class="slider" type="range" min="0" max="100000" id="thresh8" oninput="updateSliders(8);">
+                <input class="slider" type="range" min="0" max="100000" id="thresh9" oninput="updateSliders(9);">
+                <input class="slider" type="range" min="0" max="100000" id="thresh10" oninput="updateSliders(10);">
+                <input class="slider" type="range" min="0" max="100000" id="thresh11" oninput="updateSliders(11);">
+            </div>
+            <input type="button" id="reset" value="Reset" onclick="initializeThresholds(); redraw();">
+            <br><br>
+            <label>Dot size:</label>
+            <input class="slider" type="range" min="0" max="1000" id="dotScale" oninput="updateDotSize()">
+        </fieldset>
+        <br>
+        <fieldset>
+            <input type="checkbox" name="aspectRatio" id="aspectRatio" value="preserve" checked onchange="updateAspect()">
+            <label for="aspectRatio">Preserve image aspect ratio</label>
+            
+            <table>
+                <tr>
+                <td><label>Columns: </label></td>
+                <td><input type="number" name="columns" id="columns" min="1" value="80" onchange="updateRes('c')"></td>
+                </tr>
+                <tr>
+                <td><label>Rows: </label></td>
+                <td><input type="number" name="rows" id="rows" min="1" value="80" onchange="updateRes('r')"></td>
+                </tr>
+                <tr>
+                <td><label>Width: </label></td>
+                <td><input type="number" name="width" id="width" min="1" value="800" onchange="updateRes('w')"></td>
+                </tr>
+                <tr>
+                <td><label>Height: </label></td>
+                <td><input type="number" name="height" id="height" min="1" value="800" onchange="updateRes('h')"></td>
+                </tr>
+            </table>
+        </fieldset>
+        </div>
+        <p><canvas id="canvas"></canvas></p>
+        </div>
+    </body>
+</html>
